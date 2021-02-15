@@ -57,11 +57,10 @@ public class BankAccount{
      
    if(currentBalance<minimumBalance)
       newBalance = currentBalance - SERVICE_CHARGE;
-   else if(currentBalance<(minimumBalance + CHECKING_MAX_BALANCE))
+   else if(currentBalance<=(minimumBalance + CHECKING_MAX_BALANCE))
       newBalance = currentBalance * INTREREST_RATE_LOW + currentBalance;   
     else
       newBalance = currentBalance * INTEREST_RATE_HIGH + currentBalance;
-      
       return newBalance;   
    }
    
