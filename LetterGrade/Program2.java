@@ -18,7 +18,7 @@ public class Program2{
      
     Scanner scanner = new Scanner(System.in); 
    
-   char letterGrade = ' ';   
+   char letterGrade = '';   
    try{
      while(true){
      System.out.print("Input Letter Grade: ");
