@@ -1,5 +1,0 @@
-A bank in your town updates its customers’ accounts at the end of each  month. The  bank offers two types of accounts: savings and checking. Every customer must maintain a minimum balance. If a customer’s balance falls below the minimum balance, there is a service charge of $10.00 for savings accounts and $25.00 for checking accounts. If the balance at the end of the month is at least the minimum balance, the account receives interest as follows:
-a.       Savings account receive 4% interest
-b.    Checking accounts with balances of up to $5000 more than the minimum balance receive 3% interest, otherwise, the interest is 5%.
-Write a program that reads a customer’s account number (int type) account type (char type; s or S for savings, c or C for checking), minimum balance that the account should maintain and current balance. The program should then output the account number, account type, current balance, and new balance or an appropriate error message. 
-
