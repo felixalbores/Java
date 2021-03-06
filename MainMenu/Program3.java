@@ -27,7 +27,6 @@ public class Program3 {
    public static void main(String[] args) {
 
         int option;
-        try {
             while (true) {
                 option = chooseAndDisplayMenu();
                 if (option == 1) {
@@ -38,14 +37,12 @@ public class Program3 {
                 else if (option == 3)
                     System.out.println("The product is " + (firstInteger * secondInteger));
                 else if (option == 4)
-                    System.out.println("The quotient is " + (firstInteger / secondInteger));
+                    System.out.println("The quotient is " + (firstInteger / (double)secondInteger));
                 else if (option == 5)
                     System.out.println("The difference is " + (firstInteger - secondInteger));
                 else if (option == 0)
                     break;
-            }
-        }catch(Exception e){
-            System.out.print("Invalid Input");
+            
         }
     }
 
