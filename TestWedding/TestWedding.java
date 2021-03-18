@@ -1,7 +1,22 @@
 public class TestWedding{
    public static void main(String args[]){
-      Person p1 = new Person("Felix","Albores",2020,12,26);
-      System.out.print(p1.birthDate);
+      Person male = new Person("Step","Albores",2000,12,26);
+      Person female = new Person("Felix","Unknown",1998,6,21);
+      Couple couple = new Couple(male,female);
+                                           //String         //String       //y/m/d     //String
+      Wedding wedding  = new Wedding(male.getFirstName(),female.getFirstName(),2000,12,14,"St.Peter");
+      displayAll(wedding);
+      
+      
+      
+   }
+   
+   public static void displayAll(Wedding wedding){
+      System.out.print("\nCouple");
+      System.out.println("\nBride: " + wedding.getBride()
+                        +"\nBrideGroom: " + wedding.getBrideGroom()
+                        +"\nWedding Date: " + wedding.getWeddingDate()
+                        +"\nLocation: " + wedding.getLocation());
    }
 } 
 
