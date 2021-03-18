@@ -1,3 +1,4 @@
+//SAMpLE
 /* Create a class Person with the following attributes:
 -	lastname : String
 -	firstname: String
