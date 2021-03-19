@@ -85,6 +85,6 @@ public class Person{
         p2.displayInformation();
         
         Person p3 = new Person("Yeager","Eren",'M',2004,11,1);        
-         p2.displayInformation();
+         p3.displayInformation();
     }
 }
