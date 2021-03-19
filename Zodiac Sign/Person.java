@@ -20,6 +20,7 @@ public class Person{
         this.gender = gender;
         birthDate = LocalDate.of(year,month,day);
     }
+    
     //setters
     public void setLastName(String lastName){this.lastName = lastName;}
     public void setFirstName(String firstName){this.firstName = firstName;}
@@ -35,7 +36,6 @@ public class Person{
     public int getAge(){
         LocalDate today = LocalDate.now();
         int age = Period.between(birthDate,today).getYears();
-
         return age;
     }
     
@@ -70,7 +70,7 @@ public class Person{
             return "Capricorn";
     }
     public void displayInformation(){
-      System.out.println("Person Information "
+      System.out.println("\n------------Person Information-------------"
                         +"\n\nLastName: " + getLastName()
                         +"\nFirstName: " + getFirstName()
                         +"\nBirtDate: " + birthDate
