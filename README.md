@@ -1,9 +1,9 @@
 # Java
 
-COURSE NO:CC-DASTRUC21/CC-DASTRUC21 LAB
+COURSE NO:IT-OOPROG21/IT-OOPROG21 LAB
 
-Schedule : MW 3:00-4:30/4:30 -5:30PM
+Schedule : TTH 4:30-5:30/6:00 -7:30PM
 
-Subject : Data Structure and Algorithm
+Subject : Object Oriented Programming
 
-Teacher : Dennis Durano
+Teacher : Emmilie Villaceran
