@@ -1,16 +1,33 @@
+import java.util.Scanner;
 public class PigLatin{
-   
-   public static void main(String[] args){
+         
+       static String pigLatinWord = "ay";
+       static char[] vowels = {'a','e','i','o','u'};
+        
+       static Scanner scanner = new Scanner(System.in);
       
-      char[] vowels = {'a','e','i','o','u'};
-     
-      String word = "Hello";//the first letter is H its consants os the answer will be ellohay
-     
-      System.out.println(vowels[0]);
-     
-//      for(c = 'A'; c <= 'z'; ++c)
-//       System.out.print(c + " ");
-// 
+      public static void main(String[] args){
+             
+             System.out.print("Input Word: ");
+             String word = scanner.next();
+             
+             
+          char letter = word.toLowerCase().charAt(0);
+          StringBuilder sb = new StringBuilder(word);
+              switch(letter){
+                     case 'a': case 'i': case 'e': case 'u': case 'o':
+                       sb.append(pigLatinWord);
+                       break;
+                       default:
+                          sb.deleteCharAt(0);
+                          sb.append(letter);
+                          sb.append(pigLatinWord);    
+              }       
+          System.out.println("PigLatin: " + sb);
+          
+          
+          
+ 
    }
 
 }
