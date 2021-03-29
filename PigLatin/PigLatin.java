@@ -7,27 +7,54 @@ public class PigLatin{
        static Scanner scanner = new Scanner(System.in);
       
       public static void main(String[] args){
-             
-             System.out.print("Input Word: ");
+       System.out.print("Input Word: ");
              String word = scanner.next();
              
              
-          char letter = word.toLowerCase().charAt(0);
           StringBuilder sb = new StringBuilder(word);
-              switch(letter){
-                     case 'a': case 'i': case 'e': case 'u': case 'o':
-                       sb.append(pigLatinWord);
-                       break;
-                       default:
-                          sb.deleteCharAt(0);
-                          sb.append(letter);
-                          sb.append(pigLatinWord);    
-              }       
-          System.out.println("PigLatin: " + sb);
+                             //f           //elix
+               char letter = sb.charAt(0);                  
+                           sb.deleteCharAt(0);
+                        System.out.println(sb.append(letter));
+                        //sb.append((sb.charAt(0)));
+                         //     System.out.println(sb); 
+             
+//            for(int i = 0;i<sb.length();i++){
+//               switch(sb.charAt(i)){
+//                      case 'a': case 'i': case 'e': case 'u': case 'o':
+//                        break;
+//                        default:
+//                           sb.deleteCharAt(0);
+//                           sb.append(sb.charAt(0));    
+//               }
+//               
+//           }       
+                System.out.println("PigLatin: " + sb.append(pigLatinWord));
+               
+            
           
           
           
- 
+          
+          
+          
+          
+          
+          //  //            StringBuilder sb = new StringBuilder(word);
+//                 for(int i = 0;i<vowels.length;i++){
+//                    if(vowels[i] == firstLetterOfWord){
+//                      sb.append(pigLatinWord);
+//                      break;
+//                   }else if(i == vowels.length - 1){
+//                              sb.deleteCharAt(0);
+//                              sb.append(firstLetterOfWord);
+//                              sb.append(pigLatinWord);        
+//                        }             
+//                }
+//                System.out.println("Pig Latin: " + sb);
+//                   
+     
+
    }
 
 }
