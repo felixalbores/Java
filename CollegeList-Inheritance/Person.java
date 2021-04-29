@@ -20,8 +20,7 @@ public class Person{
 
       
       public void display(){
-         System.out.print("Person Information\n "
-                         +"\nFirst Name: " + firstName
+         System.out.print("\nFirst Name: " + firstName
                          +"\nLast Name: " + lastName
                          +"\nAddress: " + streetAddress
                          +"\nZip Code: " + zipCode

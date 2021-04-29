@@ -15,7 +15,7 @@ public class CollegeEmployee extends Person {
       
       public void display(){
          super.display();
-         System.out.print("\nSocial Security Number: " + socialSecurityNumber
+         System.out.println("\nSocial Security Number: " + socialSecurityNumber
                          +"\nAnnual Salary: " + annualSalary
                          +"\nDepartment Name: " + departmentName);
       }
