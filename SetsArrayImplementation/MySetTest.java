@@ -3,6 +3,7 @@
 */
 public class MySetTest{
    static public void main(String... args){
+   
       MySet setA = new MySetArray(new String[]{"A","B","C","D"});
       MySet setB = new MySetArray(new String[]{"C","D","E"});
       MySet setD = new MySetArray(new String[]{"1","2","3","4","5","6"});
