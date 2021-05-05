@@ -1,0 +1,7 @@
+Write a short program that would accept 5 positive integers not greater than 20,
+put the data in an Array and display the smallest, largest,
+median(middle value among the inputted integers), 
+sum and average of the inputted values.
+
+The program must implements necessarry exception handler,
+prompts(such as what to input) and messages(output labels ex. smallest = 5)
