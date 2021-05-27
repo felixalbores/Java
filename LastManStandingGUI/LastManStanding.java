@@ -1,62 +1,109 @@
-import javax.swing.JCheckBox;
-import javax.swing.JFrame;
-import javax.swing.JButton;
-import java.awt.FlowLayout;
+import java.awt.*;
+import javax.swing.*;
 import java.awt.event.*;
-import java.util.Random;
-
-public class LastManStanding extends JFrame implements ActionListener{
-   int countPick = 0;
-   final int MAX_PICK = 2;
-   int i = 0;
-
-   Object[] instances = new Object[10];
-   JCheckBox[] box = new JCheckBox[10];
-   JButton button = new JButton("Click to Complete");
+public class LastManStanding extends JFrame implements ItemListener,ActionListener {
+ 
+ int a,b,count;
+ boolean computersTurn = false;
+  
+ JCheckBox[] box = new JCheckBox[10];
+ JButton button = new JButton("Done");
+ boolean[] isClick = new boolean[10];
+ 
+ 
+ public LastManStanding()
+ {
+    super("LastManStanding");
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    setLayout(new FlowLayout());
    
-   public LastManStanding(){
-         super("Last Man Standing");
-         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-         setLayout(new FlowLayout());
-         
-         //CheckBox
-         for(int i = 0;i<box.length;i++){
-            box[i] = new JCheckBox();
-            add(box[i]);
-            box[i].addActionListener(this);
+  
+    for(a = 0; a < box.length; ++a)
+    {
+       box[a] = new JCheckBox();
+       add(box[a]);
+       box[a].addItemListener(this);
+    }
+    
+    add(button);
+    button.addActionListener(this);
+ }
+ 
+
+//this method run when JCheck click
+ @Override
+ public void itemStateChanged(ItemEvent check) {
+    if(!computersTurn) {
+     Object source = check.getItem();
+       for(a= 0; a < box.length; ++a){
+           if(source == box[a]) {
+              box[a].setSelected(true);
+                if(count < 3) { 
+                    isClick[a] = true;
+                       ++count;
+               }
+               else
+                  box[a].setSelected(false);
+                  a = 10;
+            }
          }
-         
-         //For the button 
-         add(button); 
-         button.addActionListener(this);
-     
+     }
+ }
+ 
+ 
+ //this method run when the JButon Click
+ @Override
+ public void actionPerformed(ActionEvent e) {
+    if(isCheckAll()) { 
+       String winner = "You Wins";
+       printWinner(winner);
+    }else {
+       computersTurn = true;
+       int random = ((int)(Math.random() * 100) % 3);
+        for(a = 0; a <= random; ++a) {
+            for(b = 0; b < box.length; ++b) {
+                if(!isClick[b]) {
+                   isClick[b] = true;
+                   box[b].setSelected(true);
+                   b = 10;
+                }
+              }
+          }
+          computersTurn = false;
+          if(isCheckAll()) { 
+              String winner = "Computer Wins";
+              printWinner(winner); 
+          }
+          count = 0;
+    }
+ }
+ 
+ //isCheckAll method
+ public boolean isCheckAll() {
+       boolean isDone = true;
+       for(a = 0; a < box.length; ++a) {
+       if(!isClick[a])
+       isDone = false;
       }
-   
-
-   @Override
-   public void actionPerformed(ActionEvent event){
-         Object source = event.getSource();
-       
-         instances[i++] = source; //6,7,8 (naay sud) --first mani sya
-             
-       if(source instanceof JCheckBox)  
-             ((JCheckBox)source).setEnabled(false);
-     
-     if(countPick++ == MAX_PICK) //enabled false all
-       for(int i = 0; i<10;i++)
-            box[i].setEnabled(false); 
-     
-      if(source instanceof JButton){
-        for(int i = 0;i<10;i++)
-           if(instances[i] == null)
-               box[i].setEnabled(true);
-      }
-      
-   }
-   
-   public static void main(String[] args){
-      LastManStanding a = new LastManStanding();
-      a.setSize(300,100);
-      a.setVisible(true);
-   }
+        return isDone;
+ }
+ 
+ //printWinner method
+ public void printWinner(String winner)
+ {
+       for(a = 0; a < box.length; ++a)
+       remove(box[a]);
+       remove(button);
+       JLabel done = new JLabel(winner);
+       add(done);
+       validate();
+       repaint();
+ }
+ 
+  public static void main(String[] arguments)
+   {
+          LastManStanding frame = new LastManStanding();
+          frame.setSize(360,100);
+          frame.setVisible(true);
+    }
 }
