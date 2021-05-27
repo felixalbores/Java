@@ -3,19 +3,12 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 import java.awt.FlowLayout;
 import java.awt.event.*;
-public class LastManStanding extends JFrame implements ItemListener,ActionListener{
-
-   JCheckBox box_1 = new JCheckBox();
-   JCheckBox box_2 = new JCheckBox();
-   JCheckBox box_3 = new JCheckBox();
-   JCheckBox box_4 = new JCheckBox();
-   JCheckBox box_5 = new JCheckBox();
-   JCheckBox box_6 = new JCheckBox();
-   JCheckBox box_7 = new JCheckBox();
-   JCheckBox box_8 = new JCheckBox();
-   JCheckBox box_9 = new JCheckBox();
-   JCheckBox box_10 = new JCheckBox();
-   
+import java.util.Random;
+public class LastManStanding extends JFrame implements ActionListener{
+   int countPick = 0;
+   final int MAX_PICK = 2;
+   //boxes-10
+   JCheckBox[] checkBox = new JCheckBox[10];
    //Button Click
    JButton button = new JButton("Click to Complete");
    
@@ -25,18 +18,10 @@ public class LastManStanding extends JFrame implements ItemListener,ActionListen
       setLayout(new FlowLayout());
       
       //add the JCheckBox in a JFrame
-      add(box_1);
-      add(box_2);
-      add(box_3);
-      add(box_4);
-      add(box_5);
-      add(box_6);
-      add(box_7);
-      add(box_8);
-      add(box_9);
-      add(box_10);
+      for(int i = 0;i<checkBox.length;i++)
+         add(checkBox[i]);
      
-     //For the button 
+      //For the button 
       add(button); 
       button.addActionListener(this);
       
@@ -53,14 +38,30 @@ public class LastManStanding extends JFrame implements ItemListener,ActionListen
       box_10.addActionListener(this);
    }
    
+
    @Override
-   public void itemStateChanged(ItemEvent event){
-      System.out.print("It's work");
-   }
-   
-   @Override
-   public void actionPerformed(ActionEvent e){
-      System.out.print("Action Performed");
+   public void actionPerformed(ActionEvent event){
+         Object source = event.getSource();
+         if(source instanceof JCheckBox){
+            ((JCheckBox) source).setEnabled(false);  
+            
+          }
+                 
+            
+          }
+         else
+            if(source instanceof JButton){
+            Random random = new Random();
+              int randomNumber;
+              for(int i = 0;i<10;i++){
+                randomNumber = random.nextInt(10)+1;
+                  System.out.println(randomNumber);
+               }
+               box_10.setSelected(true);   
+               box_10.setEnabled(false);
+            }
+              //((JButton) source).setEnabled(false);  
+
    }
    
    public static void main(String[] args){
