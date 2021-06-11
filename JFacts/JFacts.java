@@ -15,14 +15,14 @@ import java.util.Random;
 
 public class JFacts extends JFrame implements ActionListener{
     
-    String[] factsTopic = {"Earth is the only planet not named after a god.",
-                          "In a lifetime, you make 396 friends, but only 1 out of 12 friendships lasts.",
-                          "There are 1 million ants for every human in the world.",
-                          "Hummingbirds are the only known birds that can also fly backwards",
-                          "Octopuses have three hearts, nine brains, and blue blood",
-                          "The shortest living animal in the world is the Mayfly. It’s entire lifespan is just 24hrs",
-                          "20% of Earth’s oxygen is produced by the Amazon rainforest",
-                          "Venus is the only planet to spin clockwise",};
+    String[] factsTopic = {"Human Torch made the first appearance of any Marvel hero in the comics.",
+                           "There are an estimated 100-400 billion stars in our galaxy, the Milky Way",         
+                           "In a lifetime, you make 396 friends, but only 1 out of 12 friendships lasts.",
+                           "Small pockets of air inside cranberries cause them to bounce and float in water.",
+                           "There is no sound in space because molecules are too far apart to transmit sound.",
+                           "The shortest living animal in the world is the Mayfly.It’s entire lifespan is just 24hrs.",
+                           "20% of Earth’s oxygen is produced by the Amazon rainforest",
+                           "Octopuses have three hearts, nine brains, and blue blood."};
     
     JLabel[] facts = new JLabel[6];
     JButton button = new JButton("Button");
@@ -40,7 +40,7 @@ public class JFacts extends JFrame implements ActionListener{
          setSize(500,220);
          setLayout(new FlowLayout());
          setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-  
+         
          
          
          for(int i = 0;i<facts.length;i++){
@@ -51,23 +51,24 @@ public class JFacts extends JFrame implements ActionListener{
          add(button);
          button.addActionListener(this);
          
+         setVisible(true);
       }
       
       @Override
       public void actionPerformed(ActionEvent event){
           Random random = new Random();
-          int randomNumber = random.nextInt(6); //this random generate between 0 and 6 but if you want to generate 1 to 7 then 
-          System.out.print(randomNumber);       //follow this code  int random = random.nextInt(7)+1; generate between 1 to 7 no include 7
+          int r1 = random.nextInt(6);              
          
-         remove(facts[randomNumber]);
-         validate();// if you add or remove the label in your JFrame always remember 
-         repaint();// the validate and repaint method because that is useful and you see your effects after you remove or add any components.
-        setVisible(true);
+         remove(facts[r1]);
+  
+         validate();
+         repaint();
+        
+    
       }
       
        
      public static void main(String[] args){
          JFacts frame = new JFacts();
-         frame.setVisible(true);
      }
 }
