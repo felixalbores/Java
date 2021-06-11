@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 
 public class JFacts extends JFrame implements ActionListener{
     
@@ -54,7 +55,11 @@ public class JFacts extends JFrame implements ActionListener{
       
       @Override
       public void actionPerformed(ActionEvent event){
-            
+          Random random = new Random();
+          int randomNumber = random.nextInt(7); //this random generate between 0 and 6 but if you want to generate 1 to 7 then 
+          System.out.print(randomNumber);       //follow this code  int random = random.nextInt(7)+1; generate between 1 to 7 no include 7
+         
+         // remove(facts[randomNumber]);
       }
       
        
