@@ -11,7 +11,6 @@ import javax.swing.JButton;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Random;
 
 public class JFacts extends JFrame implements ActionListener{
     
@@ -22,12 +21,13 @@ public class JFacts extends JFrame implements ActionListener{
                            "There is no sound in space because molecules are too far apart to transmit sound.",
                            "The shortest living animal in the world is the Mayfly.It’s entire lifespan is just 24hrs."};
                            
-    String[] newTopics = {"A whiteout or heavy snowfall that makes it difficult to see, can make you feel sick.",
-                          "Octopuses have three hearts, nine brains, and blue blood.",
+    String[] newTopics = {"Approximately 43% of Republicans and 67% of Democrats believe in evolution.",
+                          "Thomas Edison- He set up his first lab in his parent's basement at the age of 10.",
                           "The company that invented the modem was a successor of Alexander Graham Bell",
-                          "ASCII, invented in 1963, allowed characters to have uniformity across any computer",
-                          "Two faraway computers were linked for the first time in 1965.",
-                          "The first network of four computers were linked in 1969."};
+                          "A whiteout or heavy snowfall that makes it difficult to see, can make you feel sick.",
+                          "A person can live about a month without food, but only about a week without water.",
+                          "ASCII, invented in 1963, allowed characters to have uniformity across any computer.",
+                          };
     
     
     JLabel[] facts = new JLabel[6];
@@ -58,25 +58,20 @@ public class JFacts extends JFrame implements ActionListener{
       
       @Override
       public void actionPerformed(ActionEvent event){
-          Random random = new Random();
-          int r1 = random.nextInt(6);              
+               
          
-         remove(facts[r1]);
-       
-       
-     
-     if(count != MAX){
-       newFact[count] = new JLabel(newTopics[count]);
-       add(newFact[count]);
-       count++; 
-    }
-    if(count == MAX){
-      
-    }
-                
-       
-       
-       
+         remove(facts[count]);
+         //initialize                       //A whiteout or heavy
+         newFact[count] = new JLabel(newTopics[count]); 
+         add(newFact[count++]);//add the label in the JFrame
+         
+         //execute when its MAX = 6
+         if(count == MAX){
+            count = 0;
+             newTopics = factsTopic;//array of String[] they it iniatilize  
+             facts = newFact;//what happen here.
+        }
+            
          validate();
          repaint();
         
