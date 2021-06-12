@@ -20,22 +20,23 @@ public class JFacts extends JFrame implements ActionListener{
                            "In a lifetime, you make 396 friends, but only 1 out of 12 friendships lasts.",
                            "Small pockets of air inside cranberries cause them to bounce and float in water.",
                            "There is no sound in space because molecules are too far apart to transmit sound.",
-                           "The shortest living animal in the world is the Mayfly.It’s entire lifespan is just 24hrs.",
-                           "20% of Earth’s oxygen is produced by the Amazon rainforest",
-                           "Octopuses have three hearts, nine brains, and blue blood."};
+                           "The shortest living animal in the world is the Mayfly.It’s entire lifespan is just 24hrs."};
+                           
+    String[] newTopics = {"A whiteout or heavy snowfall that makes it difficult to see, can make you feel sick.",
+                          "Octopuses have three hearts, nine brains, and blue blood.",
+                          "The company that invented the modem was a successor of Alexander Graham Bell",
+                          "ASCII, invented in 1963, allowed characters to have uniformity across any computer",
+                          "Two faraway computers were linked for the first time in 1965.",
+                          "The first network of four computers were linked in 1969."};
+    
     
     JLabel[] facts = new JLabel[6];
     JButton button = new JButton("Button");
+    JLabel[]  newFact = new JLabel[6];
+    byte count = 0;
+    byte MAX = 6;
     
-    
-    JLabel label_1 = new JLabel();
-    JLabel label_2 = new JLabel();
-    JLabel label_3 = new JLabel();
-    JLabel label_4 = new JLabel();
-    JLabel label_5 = new JLabel();
-    JLabel label_6 = new JLabel();
-      
-      public JFacts(){
+       public JFacts(){
          super("Facts Topics");
          setSize(500,220);
          setLayout(new FlowLayout());
@@ -54,13 +55,28 @@ public class JFacts extends JFrame implements ActionListener{
          setVisible(true);
       }
       
+      
       @Override
       public void actionPerformed(ActionEvent event){
           Random random = new Random();
           int r1 = random.nextInt(6);              
          
          remove(facts[r1]);
-  
+       
+       
+     
+     if(count != MAX){
+       newFact[count] = new JLabel(newTopics[count]);
+       add(newFact[count]);
+       count++; 
+    }
+    if(count == MAX){
+      
+    }
+                
+       
+       
+       
          validate();
          repaint();
         
