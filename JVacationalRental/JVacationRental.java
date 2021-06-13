@@ -106,8 +106,8 @@ public class JVacationRental extends JFrame implements ItemListener{
               totalPrice += LAKE_SIDE;
          else
               totalPrice -= LAKE_SIDE;
-    
-  //Room
+   
+  //if you check the checkbox greater than one bed room it add 75 dollars otherswise still the same.
      if(source == twoBedRoom || source == threeBedRoom)
          if(select == ItemEvent.SELECTED)
                totalPrice += ADD_PRICE;
