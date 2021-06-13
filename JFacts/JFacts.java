@@ -56,28 +56,24 @@ public class JFacts extends JFrame implements ActionListener{
       }
       
       
+      //Always Execute when button is clicked
       @Override
       public void actionPerformed(ActionEvent event){
                
          
          remove(facts[count]);
-         //initialize                       //A whiteout or heavy
          newFact[count] = new JLabel(newTopics[count]); 
-         add(newFact[count++]);//add the label in the JFrame
-         
-         //execute when its MAX = 6
+         add(newFact[count++]);
+
          if(count == MAX){
-            count = 0;
-             newTopics = factsTopic;//array of String[] they it iniatilize  
-             facts = newFact;//what happen here.
+             count = 0;
+             newTopics = factsTopic;
+             facts = newFact;
         }
             
          validate();
          repaint();
-        
-    
       }
-      
        
      public static void main(String[] args){
          JFacts frame = new JFacts();
