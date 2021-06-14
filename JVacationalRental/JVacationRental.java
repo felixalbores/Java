@@ -30,6 +30,10 @@ public class JVacationRental extends JFrame implements ItemListener{
    JCheckBox twoBedRoom = new JCheckBox("Two Bed Room");
    JCheckBox threeBedRoom = new JCheckBox("Three Bed Room"); 
    
+   ButtonGroup mealGroup = new ButtonGroup();
+   JCheckBox meal = new JCheckBox("Meals");
+   JCheckBox noMeal = new JCheckBox("No Meals");
+   
       
    //Base Price
    final short BASE_PRICE = 200;
@@ -37,7 +41,7 @@ public class JVacationRental extends JFrame implements ItemListener{
    final short POOL_SIDE = 750;
    final short LAKE_SIDE = 825;
    final byte ADD_PRICE = 75;
-   int totalPrice = BASE_PRICE;
+   int totalPrice = 0;
    
    JLabel priceLabel = new JLabel("Total Price ");
    JTextField totalAmount = new JTextField(4);
@@ -82,9 +86,20 @@ public class JVacationRental extends JFrame implements ItemListener{
       
       add(priceLabel);
       add(totalAmount);
+      
+      //Meals
+      add(meal);
+      mealGroup.add(meal);
+      meal.addItemListener(this);
+      add(noMeal);
+      mealGroup.add(noMeal);
+      noMeal.addItemListener(this);
+      
       totalAmount.setText("$" + totalPrice);
     
    }
+   
+   @Override
    public void itemStateChanged(ItemEvent event){
      Object source  = event.getSource();
      int select = event.getStateChange();
@@ -107,14 +122,28 @@ public class JVacationRental extends JFrame implements ItemListener{
          else
               totalPrice -= LAKE_SIDE;
    
-  //if you check the checkbox greater than one bed room it add 75 dollars otherswise still the same.
-     if(source == twoBedRoom || source == threeBedRoom)
+  //Each bedroom greater than one add $75 dollars to the basePrice.- base price is 0
+    final short THREE_BED_ROOM_PRICE = 150;
+     if(source == twoBedRoom)
          if(select == ItemEvent.SELECTED)
                totalPrice += ADD_PRICE;
          else
-               totalPrice -= ADD_PRICE;    
+               totalPrice -= ADD_PRICE;
+      else if(source == threeBedRoom)
+            if(select == ItemEvent.SELECTED)
+                totalPrice += THREE_BED_ROOM_PRICE;
+            else
+               totalPrice -= THREE_BED_ROOM_PRICE;  
+     
+     //Meals 
+     if(source == meal)
+         if(select == ItemEvent.SELECTED)
+               totalPrice += BASE_PRICE;
+         else
+             totalPrice -= BASE_PRICE; 
+     
             
-      totalAmount.setText("$" + totalPrice);
+       totalAmount.setText("$" + totalPrice);
         
    }
    
