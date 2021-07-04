@@ -11,8 +11,8 @@ import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
-import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.awt.event.ItemEvent;
 
 public class JVacationRental extends JFrame implements ItemListener{ 
    
