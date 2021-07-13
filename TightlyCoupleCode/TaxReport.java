@@ -9,6 +9,8 @@ package com.zodiac;
     Look at the constructor, Our class are dependent of the other class.
     If one class, may affected then the other class may affected as well.
 
+    TaxReport is tightly couple to TaxCalculator
+
  */
 
 public class TaxReport {
