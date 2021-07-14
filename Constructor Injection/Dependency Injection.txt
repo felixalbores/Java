@@ -1,0 +1,16 @@
+Dependency Injection Principles says this Report class should not worry
+creating the calculator object  and using it are different concerns
+annd we need to separate them, this is what we called the separation of concerns
+
+-We use inteface for injecting the constructor, try too look out the constructor
+-Dependency Injection is really helpful, because your class is independent of each other.
+-It indepedent of each other, if you modify the class, then then the other class would not be affected.
+
+-If one class may be broken, then the other class would not be affected 
+ just like using Constructor Injection.
+
+-To achieve this we need to use interface
+
+-This is based on my understanding only.
+
+-I'm not expert in JAVA
